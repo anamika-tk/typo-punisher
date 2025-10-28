@@ -1,79 +1,138 @@
 # 🔥 Typo Punisher
 
-**Typo Punisher** is a fun little Python project that *roasts you when you make typos*.  
-It helps you improve your typing accuracy — with a bit of humor 😆.
+> “You make a typo… and it *lets you know* — brutally.” 😈  
+
+Typo Punisher is a fun and simple Python script that detects when you make typos while typing and sends you a hilarious “roast” message right on your desktop.  
+Built using `notify2` for notifications — because who doesn’t love a little sarcasm with their debugging?
 
 ---
 
-## 🧩 How It Works
+## 🧠 What It Does
 
-1. You type something (maybe while coding or writing).
-2. The program detects if you made a **typo** using a spell checker.
-3. When a typo is detected, it:
-   - Sends you a **notification**, and  
-   - Delivers a **funny roast or sarcastic message** (customizable).
-4. Optionally, it logs your mistakes to help you track progress over time.
+- Detects typos while you type (from logs or input)
+- Sends notifications to your desktop with `notify2`
+- Roasts you with random funny messages when you slip up
+- Helps you type better — by bullying you (gently)
 
 ---
 
-## 🧠 Example Output
+## ✨ Features
 
-Oops, did you mean "receive"?
-Because you clearly didn’t receive spelling lessons 🤭
-
-makefile
-Copy code
-
-Or:
-
-Typo detected! But hey, at least you're consistent at being wrong 😌
-
-yaml
-Copy code
+- 🪶 Lightweight — no complex setup required  
+- 🔔 Real-time desktop notifications  
+- 🎭 Random roast messages for every mistake  
+- 🧰 Works across Linux distros  
+- 💻 Perfect for learning, pranks, or just fun coding practice  
 
 ---
 
 ## ⚙️ Installation
 
-Clone this repo and install the dependencies:
-
+### 1️⃣ Clone the Repository
 ```bash
 git clone https://github.com/anamika-tk/typo-punisher.git
 cd typo-punisher
-pip install -r requirements.txt
-(If you don’t have a requirements.txt, you can create one later.)
+2️⃣ Create and Activate a Virtual Environment
+bash
+Copy code
+python -m venv venv
+source venv/bin/activate
+🪟 For Windows:
 
-▶️ Usage
-Run the main script:
+bash
+Copy code
+venv\Scripts\activate
+📦 Install Dependencies
+bash
+Copy code
+pip install notify2
+If you get the following error:
+
+vbnet
+Copy code
+ModuleNotFoundError: No module named 'dbus'
+Fix it by installing the system package for your distro:
+
+OS	Command
+🐧 Arch / Manjaro	sudo pacman -S python-dbus
+🧊 Ubuntu / Debian	sudo apt install python3-dbus
+🧩 Fedora	sudo dnf install python3-dbus
+
+▶️ Running the Script
+Once everything is set up, run:
 
 bash
 Copy code
 python typo_punisher_roast.py
-Or integrate it into your typing/coding workflow — for example, use it in:
+You’ll start seeing desktop notifications every time the script detects a typo.
+If you type fast or mess up often, expect to get roasted in style 🔥
 
-Your text editor or IDE
+🧠 How to Activate / Deactivate the Virtual Environment
+▶️ Activate
+If your environment isn’t active yet:
 
-A background service that monitors text input
+bash
+Copy code
+source venv/bin/activate
+or (on Windows):
 
-🧠 Technologies Used
-Python 3
+bash
+Copy code
+venv\Scripts\activate
+Then run:
 
-pyspellchecker – for typo detection
+bash
+Copy code
+python typo_punisher_roast.py
+🛑 Deactivate
+To stop Typo Punisher:
 
-plyer or notify2 – for desktop notifications
+Press Ctrl + C in your terminal to stop the running script.
 
-random – for generating random roast messages
+Run:
 
-🪄 Future Improvements
-Add support for multiple languages
+bash
+Copy code
+deactivate
+📂 Project Structure
+bash
+Copy code
+typo-punisher/
+│
+├── typo_punisher_roast.py   # Main script that detects typos and sends roasts
+├── README.md                # You’re reading it!
+└── venv/                    # Virtual environment (not tracked by Git)
+🪄 Example Output
+💬 Typo Detected!
+“You type like you’re speedrunning typos.”
 
-Create a GUI version
+💬 Oops Again!
+“Did you just invent a new word? Dictionary pending approval.”
 
-Allow users to add their own roast messages
+💬 Another One!
+“Your keyboard is crying. Please stop.”
 
-Add voice notifications for fun
+🧰 Troubleshooting
+❌ notify2 not found?
+→ Run: pip install notify2
 
-🤝 Contributing
-Pull requests are welcome!
-If you’d like to suggest new roasts or features, open an issue 😄
+❌ dbus module missing?
+→ Install via your distro package manager (see table above).
+
+❌ Notifications not showing?
+→ Make sure your desktop notification system is enabled.
+→ Try running a test:
+
+bash
+Copy code
+notify-send "Test" "Notification system working!"
+💡 Future Ideas
+Add more roast lines and randomization
+
+Add a GUI for settings and roast customization
+
+Enable cross-platform support (Windows notifications)
+
+Integrate with typing speed trackers
+
 
